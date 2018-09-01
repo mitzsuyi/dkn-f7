@@ -13,7 +13,7 @@ export default function (props) {
   const f7params = {
     id: 'com.phonegap.dkn', // App bundle ID
     name: 'DKN', // App name
-    theme: 'md', // Automatic theme detection
+    theme: 'auto', // Automatic theme detection
     // App routes
     routes
   };
