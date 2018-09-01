@@ -1,23 +1,23 @@
 import React from 'react';
-import {compose, withState, lifecycle} from 'recompose'
+import List from '../List'
 import Question from './Question'
-import {fetchQuestions} from '../Api'
+import {compose, withState, setPropTypes, withHandlers} from 'recompose'
+import PropTypes from 'prop-types'
 
-const withFetchQuestions = lifecycle({
-  componentDidMount() {
-    fetchQuestions().then(questions => {
-      this.setState({questions} );
-    })
-  }
-})
-
-const QuestionList = ({questions}) =>  {
-  return questions.map((question, index) =><Question key={index} question={question}/>)
+const propTypes = {
+  questions: PropTypes.array.isRequired,
+  toComponent: PropTypes.func.isRequired
 }
 
+const QuestionList = ({questions, toComponent}) => <List items={questions} toComponent={toComponent}/> 
+
+const withToComponentHandler = withHandlers({
+    toComponent: props=>(question, index)=> <Question key={index} question={question}/>
+})
+
 const enhance = compose(
-  withState('questions', 'setQuestions', []),
-  withFetchQuestions
-)
+  withToComponentHandler,
+  setPropTypes(propTypes)
+) 
 
 export default enhance(QuestionList)

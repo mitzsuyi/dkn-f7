@@ -3,3 +3,23 @@
 .search-list{
     list-style: none;
 }
+
+.card.question .card-footer a.link i.icon {
+  display:inline-block;
+}
+
+.question-type {
+}
+
+.question .close {
+  justify-content:flex-end !important;
+}
+
+.question-incent{
+ font-style: italic;
+ font-size: smaller;
+}
+
+.question-question{
+ font-weight: bold;
+}

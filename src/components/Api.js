@@ -1,9 +1,15 @@
-import {QUESTIONS} from './AppData'
+import {QA,TRAINING} from './AppData'
 
-const fetchQuestions  = ()=>{
+const fetchQAQuestions  = ()=>{
    return new Promise((resolve, reject)=>{
-    resolve(QUESTIONS)
+    resolve(QA)
    })    
 }
 
-export {fetchQuestions}
+const fetchTrainingQuestions  = ()=>{
+   return new Promise((resolve, reject)=>{
+    resolve(TRAINING)
+   })    
+}
+
+export {fetchQAQuestions, fetchTrainingQuestions}

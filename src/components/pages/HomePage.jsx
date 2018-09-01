@@ -5,8 +5,8 @@ import {
     NavLeft,
     NavRight,
     Link,
-    Toolbar,
-    Subnavbar
+    Subnavbar,
+    Icon
 } from 'framework7-react';
 
 import TabHeader from '../home/TabHeader'
@@ -30,6 +30,7 @@ const Home = ({showList, hasList}) =>{
       <Link iconIos="f7:settings" iconMd="material:wifi_tethering"></Link>
       <Link iconIos="f7:add_round" iconMd="material:add_circle_outline">Ask</Link>
      </Subnavbar>
+
      <TabHeader hasList={hasList}/>  
   </Page>
   )
