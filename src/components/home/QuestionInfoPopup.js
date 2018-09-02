@@ -26,9 +26,9 @@ const propTypes = {
   onClick: PropTypes.func.isRequired
 }
 
-const QuestionInfoPopup = ({question, onClick, onRef}) => (
+const QuestionInfoPopup = ({question, id, onClick, onRef}) => (
  <div> 
- <Popover className="question-info-popup">
+ <Popover className={`question-info-popup-${id}`}>
   <Card className="question-info">
     <CardHeader>{question.question}?</CardHeader>
     <CardContent>
@@ -38,7 +38,7 @@ const QuestionInfoPopup = ({question, onClick, onRef}) => (
       <Block>
         <Row className="justify-content-space-around">Approval</Row>
         <Row>
-          <Button onClick={onClick} popoverOpen=".answer-popup-form"
+          <Button onClick={onClick} popoverOpen={`.answer-popup-form-${id}`}
              className="question-info-approve" outline>Yes</Button>
           <Button ref={onRef} popoverClose={true} outline>No</Button>
         </Row>
@@ -46,7 +46,7 @@ const QuestionInfoPopup = ({question, onClick, onRef}) => (
     </CardFooter>
   </Card>
 </Popover>
-<AnswerPopupForm question={question}/>  
+<AnswerPopupForm id={id} question={question}/>  
 </div>
 )
 

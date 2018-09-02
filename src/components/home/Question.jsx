@@ -18,11 +18,10 @@ const Question = ({question, index}) => {
   const icon = Icons[question.type]
   const isQa = question.mode === "qa"
   const content = [ 
-      <QuestionRow key={0} className="question-question" iconCol={icon.question} textColFn={()=>(<QuestionLabel question={question}/>)}/>
+      <QuestionRow key={0} className="question-question" iconCol={icon.question} textColFn={()=>(<QuestionLabel id={index} question={question}/>)}/>
   ]
   question.hint && content.push(<QuestionRow key={1} className="question-hint" textCol={question.hint}/>)
   question.incent && content.push(<QuestionRow key={2} className="question-incent" textCol={question.incent}/>)
-  content.push(<QuestionInfoPopup key={3} question={question}/>)
   return (
     <li>
      <Card className="question">
@@ -31,6 +30,7 @@ const Question = ({question, index}) => {
   </CardHeader>
   <CardContent className="question-text">  
     {content}
+    {isQa && <QuestionInfoPopup id={index} question={question}/>}
   </CardContent>
   <CardFooter>
      <Link iconIos="fa:user-plus" iconMd="material:person_add" text="Join"/>

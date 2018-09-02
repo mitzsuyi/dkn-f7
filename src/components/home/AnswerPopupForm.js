@@ -17,8 +17,8 @@ import {
 }from 'framework7-react';
 import QuestionInfo from './QuestionInfo'
 
-const AnswerPopupForm = ({question}) => (
- <Popover className="answer-popup-form">
+const AnswerPopupForm = ({question, id}) => (
+ <Popover className={`answer-popup-form-${id}`}>
   <Card className="question-info">
     <CardHeader>{question.question}?</CardHeader>
     <CardContent>
