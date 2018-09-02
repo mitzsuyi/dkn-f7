@@ -8,7 +8,7 @@ export default ({show}) => {
   if(!show) return null  
   return (
       <div>
-      <Link searchbarEnable=".searchbar" iconIos="f7:search_strong" iconMd="material:search">Search</Link>
+      <Link searchbarEnable=".searchbar" iconIos="fa:search" iconMd="material:search">Search</Link>
        <Searchbar
          className="searchbar"
           searchContainer=".search-list"

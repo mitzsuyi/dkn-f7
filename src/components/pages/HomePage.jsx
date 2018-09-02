@@ -19,16 +19,16 @@ const Home = ({showList, hasList}) =>{
   <Page >
     <Navbar>
       <NavLeft>
-        <Link iconIos="f7:menu" iconMd="material:menu"></Link>
+        <Link iconIos="fa:bars" iconMd="material:menu"></Link>
       </NavLeft>
       <NavRight>
-        <Link iconIos="f7:bell" iconMd="material:notifications"></Link>
+        <Link iconIos="fa:bell-o" iconMd="material:notifications"></Link>
       </NavRight>
   </Navbar>    
      <Subnavbar>
       <SearchHeader show={showList} />
-      <Link iconIos="f7:settings" iconMd="material:wifi_tethering"></Link>
-      <Link iconIos="f7:add_round" iconMd="material:add_circle_outline">Ask</Link>
+      <Link iconIos="fa:globe" iconMd="material:wifi_tethering"></Link>
+      <Link iconIos="fa:plus-circle" iconMd="material:add_circle_outline">Ask</Link>
      </Subnavbar>
 
      <TabHeader hasList={hasList}/>  

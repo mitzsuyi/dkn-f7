@@ -2,9 +2,11 @@ import React from 'react';
 
 import {Link} from 'framework7-react';
 
-const TabLink = ({link, onClick, children}) =>{
+const TabLink = ({link, onClick, currentTab, children}) =>{
+    const id = link.replace(/#/,'')
+    console.log(id, 'active?', id === currentTab)
    return(
-     <Link onClick={(e)=> onClick(link.replace(/#/,''))} tabLink={link}>{children}</Link>
+     <Link className="home-nav-tab" onClick={(e)=> onClick(id)} tabLinkActive={id === currentTab} tabLink={link}>{children}</Link>
   )
 }
 

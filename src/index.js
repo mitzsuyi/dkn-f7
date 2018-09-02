@@ -14,6 +14,8 @@ import App from './components/App.jsx';
 // Framework7 styles
 import 'framework7/css/framework7.min.css';
 
+import './css/font-awesome.min.css';
+
 // Icons
 import './css/icons.css';
 

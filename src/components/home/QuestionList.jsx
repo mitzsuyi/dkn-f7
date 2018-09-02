@@ -12,7 +12,7 @@ const propTypes = {
 const QuestionList = ({questions, toComponent}) => <List items={questions} toComponent={toComponent}/> 
 
 const withToComponentHandler = withHandlers({
-    toComponent: props=>(question, index)=> <Question key={index} question={question}/>
+    toComponent: props=>(question, index)=> <Question index={index} key={index} question={question}/>
 })
 
 const enhance = compose(

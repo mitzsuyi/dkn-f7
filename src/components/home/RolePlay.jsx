@@ -1,7 +1,7 @@
 import React from 'react';
+import {fetchRolePlayQuestions} from '../Api'
+import BaseTabView from './BaseTabView'
 
-import {
-    BlockTitle
-} from 'framework7-react';
+const RolePlay = () => <BaseTabView fetchQuestions={fetchRolePlayQuestions}/>
 
-export default () => <BlockTitle>Role Play</BlockTitle>
+export default RolePlay

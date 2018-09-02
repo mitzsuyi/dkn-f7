@@ -1,15 +1,13 @@
-import {QA,TRAINING} from './AppData'
+import {QA,TRAINING, ROLE_PLAY} from './AppData'
 
-const fetchQAQuestions  = ()=>{
+const fakeFetch = (result) =>{
    return new Promise((resolve, reject)=>{
-    resolve(QA)
+    resolve(result)
    })    
 }
 
-const fetchTrainingQuestions  = ()=>{
-   return new Promise((resolve, reject)=>{
-    resolve(TRAINING)
-   })    
-}
+const fetchQAQuestions = ()=> fakeFetch(QA)
+const fetchTrainingQuestions  = ()=> fakeFetch(TRAINING)
+const fetchRolePlayQuestions  = ()=> fakeFetch(ROLE_PLAY)
 
-export {fetchQAQuestions, fetchTrainingQuestions}
+export {fetchQAQuestions, fetchTrainingQuestions, fetchRolePlayQuestions}

@@ -16,24 +16,31 @@ import Training from './Training'
 
 import TabLink from './TabLink'
 
-import { compose, lifeCycle, withHandlers} from 'recompose'
+import { compose, setDisplayName, lifeCycle, setPropTypes, withState, withHandlers} from 'recompose'
+import PropTypes from 'prop-types'
+
+const propTypes = {
+  hasList: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
+  currentTab: PropTypes.string.isRequired
+}
 
 const TQA="qa"
 
-const TabHeader = ({hasList, setActiveTab}) =>  {
+const TabHeader = ({hasList, currentTab, onClick}) =>  {
  return(
   <Page>
   <Block strong>
   <BlockHeader>
   <Row>
-    <TabLink onClick={setActiveTab} link={"#"+TQA} active={true}>QA</TabLink>
-    <TabLink onClick={setActiveTab} link="#role-play">Role play</TabLink>
-    <TabLink onClick={setActiveTab} link="#training">Training</TabLink>
+    <TabLink onClick={onClick} currentTab={currentTab} link={"#"+TQA}>Q&A</TabLink>
+    <TabLink onClick={onClick} currentTab={currentTab} link="#role-play">Role play</TabLink>
+    <TabLink onClick={onClick} currentTab={currentTab} link="#training">Training</TabLink>
   </Row>
   </BlockHeader>
   </Block>
     <Tabs>
-    <Tab id="qa" className="page-content" tabActive>
+    <Tab id="qa" className="page-content" tabActive={true}>
       <QA title="foo"/> 
     </Tab>
     <Tab id="role-play" className="page-content">
@@ -47,14 +54,21 @@ const TabHeader = ({hasList, setActiveTab}) =>  {
   )
 }
 
+const withCurrentTabState = withState("currentTab","setCurrentTab", TQA)
 
 const enhance = compose(
+    setDisplayName("TabHeader"),
+    withCurrentTabState,
     withHandlers({
-      setActiveTab: props=> tab => {
-        console.log(tab,TQA)
+      onClick: props => tab => {
+         props.setCurrentTab(tab)
+         props.hasList(tab)
+      },
+      setHasList: props=> tab => {
         props.hasList(tab == TQA)
       }  
-    })
+    }),
+    setPropTypes(propTypes)
 )
 
 export default enhance(TabHeader)

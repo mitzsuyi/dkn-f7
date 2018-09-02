@@ -2,7 +2,7 @@ import { lifecycle} from 'recompose'
 
 const withFetcher = (getRequest, onSuccess) => lifecycle({
   componentDidMount() {
-    getRequest().then((result)=>onSuccess(result, this.props))
+    getRequest(this.props).then((result)=>onSuccess(result, this.props))
   }
 })
 
